@@ -54,3 +54,38 @@ INSERT INTO seasons (anime_id, season_n, year) VALUES
 (8, 1, 2011);
 
 SELECT * FROM seasons;
+
+CREATE TABLE IF NOT EXISTS episodes (
+    episode_id SERIAL PRIMARY KEY,
+    season_id INT NOT NULL REFERENCES seasons(season_id),
+    episode_n INT NOT NULL,
+    title TEXT NOT NULL,
+    episode_date DATE, 
+    duration_min INT
+);
+
+INSERT INTO episodes (season_id, episode_n, title, episode_date, duration_min) VALUES
+(1, 1, 'I''m Luffy!', '1999-10-20', 24),
+(1, 2, 'The Great Adventure', '1999-10-27', 24),
+(2, 1, 'Enter Naruto', '2002-10-03', 23),
+(3, 2, 'My Name is Konohamaru!', '2002-10-10', 23),
+(5, 1, 'Rebirth', '2006-10-04', 22),
+(5, 2, 'Departure', '2011-10-02', 23);
+
+SELECT * FROM episodes ORDER BY episode_id;
+
+
+DELETE FROM episodes
+WHERE episode_id = 6;
+
+INSERT INTO episodes (season_id, episode_n, title, episode_date, duration_min) VALUES
+(6, 1, 'Departure', '2011-10-02', 23);
+
+SELECT * FROM episodes ORDER BY episode_id;
+
+SELECT episode_id, season_id, episode_n, title
+FROM episodes
+WHERE episode_id = 6;
+
+
+SELECT * FROM episodes WHERE episode_id = 6;
