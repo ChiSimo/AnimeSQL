@@ -96,4 +96,29 @@ INSERT INTO episodes (season_id, episode_n, title, episode_date, duration_min) V
 SELECT * FROM seasons;
 
 
+CREATE TABLE IF NOT EXISTS genres (
+    genre_id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL UNIQUE
+);
+
+INSERT INTO genres (name) VALUES
+('Action'),
+('Adventure'),
+('Fantasy'),
+('Supernatural'),
+('Drama');
+
+SELECT * FROM genres;
+
+CREATE TABLE IF NOT EXISTS anime_genres (
+    anime_id INT NOT NULL,
+    genre_id INT NOT NULL,
+    PRIMARY KEY (anime_id, genre_id),
+    FOREIGN KEY (anime_id) REFERENCES anime(anime_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+);
+
+SELECT * FROM anime_genres;
+
+
 
