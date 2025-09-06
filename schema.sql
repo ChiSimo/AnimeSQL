@@ -38,5 +38,19 @@ UPDATE anime
 SET start_year = 2001
 WHERE title = 'Spirited Away';
 
+CREATE TABLE IF NOT EXISTS seasons (
+    season_id SERIAL PRIMARY KEY,
+    anime_id INT NOT NULL REFERENCES anime(anime_id),
+    season_n INT NOT NULL,
+    year INT 
+);
 
+INSERT INTO seasons (anime_id, season_n, year) VALUES
+(3, 1, 1999),
+(3, 2, 2000),
+(5, 1, 2002),
+(5, 2, 2003),
+(7, 1, 2006),
+(8, 1, 2011);
 
+SELECT * FROM seasons;
