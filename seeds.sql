@@ -31,7 +31,7 @@ INSERT INTO seasons (anime_id, season_n, year) VALUES
 INSERT INTO episodes (season_id, episode_n, title, episode_date, duration_min) VALUES
 (1, 1, 'I''m Luffy!', '1999-10-20', 24),
 (1, 2, 'The Great Adventure', '1999-10-27', 24),
-(2, 1, 'Enter Naruto', '2002-10-03', 23),
+(3, 1, 'Enter Naruto', '2002-10-03', 23),
 (3, 2, 'My Name is Konohamaru!', '2002-10-10', 23),
 (5, 1, 'Rebirth', '2006-10-04', 22),
 (5, 2, 'Departure', '2011-10-02', 23);
@@ -67,5 +67,5 @@ INSERT INTO anime_genres (anime_id, genre_id) VALUES
 -- posters
 INSERT INTO posters (anime_id, poster) VALUES
 (1, 'https://example.com/spirited_away.jpg'),
-(2, 'https://example.com/my_neighbor_totoro.jpg'),
+(2, 'https://example.com/my_neighbor_totoro.jpg');
 
